@@ -15,26 +15,26 @@
 
 typedef enum
 {
-	SUInstallUpdateChoice,
-	SURemindMeLaterChoice,
-	SUSkipThisVersionChoice,
-	SUOpenInfoURLChoice
+  SUInstallUpdateChoice,
+  SURemindMeLaterChoice,
+  SUSkipThisVersionChoice,
+  SUOpenInfoURLChoice
 } SUUpdateAlertChoice;
 
 @class WebView, SUAppcastItem, SUHost;
 @interface SUUpdateAlert : SUWindowController {
-	SUAppcastItem *updateItem;
-	SUHost *host;
-	id delegate;
-	id<SUVersionDisplay>	versionDisplayer;
-	
-	IBOutlet WebView *releaseNotesView;
-	IBOutlet NSTextField *description;
-	IBOutlet NSButton *installButton;	// UK 2007-08-31.
-	IBOutlet NSButton *skipButton;
-	IBOutlet NSButton *laterButton;
-	NSProgressIndicator *releaseNotesSpinner;
-	BOOL webViewFinishedLoading;
+  SUAppcastItem *updateItem;
+  SUHost *host;
+  id delegate;
+  id<SUVersionDisplay>  versionDisplayer;
+  
+  IBOutlet WebView *releaseNotesView;
+  IBOutlet NSTextField *description;
+  IBOutlet NSButton *installButton; // UK 2007-08-31.
+  IBOutlet NSButton *skipButton;
+  IBOutlet NSButton *laterButton;
+  NSProgressIndicator *releaseNotesSpinner;
+  BOOL webViewFinishedLoading;
 }
 
 - (id)initWithAppcastItem:(SUAppcastItem *)item host:(SUHost *)host;
@@ -45,6 +45,8 @@ typedef enum
 - (IBAction)remindMeLater:sender;
 
 - (void)setVersionDisplayer: (id<SUVersionDisplay>)disp;
+
+-(BOOL)showsSkipVersion;
 
 @end
 
